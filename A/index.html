@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    const filter_array = (arr) => {
+      let string_array = arr.filter((item) => typeof item === "string");
+      let numbers_array = arr.filter((item) => typeof item === "number");
+
+      string_array.sort();
+      numbers_array.sort((a, b) => a - b);
+
+      return [...string_array, ...numbers_array];
+    };
+
+    let input_array = [12, 9, 30, "A", "M", 99, 82, "J", "N", "B"];
+    let urutkan = filter_array(input_array);
+
+    console.log(urutkan);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const countAndSortLetters = (input) => {
+
+            input = input.replace(/\s+/g, '');
+
+            let letterCounts = {};
+
+            for (let char of input) {
+                if (letterCounts[char]) {
+                    letterCounts[char]++;
+                } else {
+                    letterCounts[char] = 1;
+                }
+            }
+
+            let sortedLetterCounts = Object.entries(letterCounts).sort((a, b) => a[0].localeCompare(b[0]));
+
+            let result = sortedLetterCounts.map(([letter, count]) => ({
+                [letter]: count
+            })).sort((a, b) => Object.keys(a)[0].localeCompare(Object.keys(b)[0]));
+
+            return result;
+        };
+
+        // Contoh penggunaan
+        let input1 = "Hello World";
+        let input2 = "Bismillah";
+        let input3 = "MasyaAllah";
+
+        console.log(countAndSortLetters(input1));
+
+        console.log(countAndSortLetters(input2));
+
+        console.log(countAndSortLetters(input3));
+    </script>
+</body>
+
+</html>
