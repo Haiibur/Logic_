@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let petternCount = (text_string, pola_pettern) => {
+            if (pola_pettern.length === 0) {
+                return 0;
+            }
+
+            let count = 0;
+            const textLength = text_string.length;
+            const petternLength = pola_pettern.length;
+
+            for (let i = 0; i <= textLength - petternLength; i++) {
+                if (text_string.substring(i, i + petternLength) === pola_pettern) {
+                    count++
+                }
+            }
+            return count;
+        }
+
+        console.log(petternCount("palindrom", "ind"));
+        console.log(petternCount("abakadabra", "ab"));
+        console.log(petternCount("hello", " "));
+        console.log(petternCount("ababab", "aba"));
+        console.log(petternCount("aaaaaa", "aa"));
+        console.log(petternCount("hell", "hello"));
+    </script>
+</body>
+
+</html>
